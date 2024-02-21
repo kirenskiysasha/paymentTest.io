@@ -1,16 +1,31 @@
 let language = "ru-RU"
 
-this.pay = function () {
+Paymentbutton = document.querySelector('#paymentButton')
+
+
+this.startFunc = function () {
+    email = document.forms[0]['email'].value;
+    phone = document.forms[0]['phone'].value;
+    firstName = document.forms[0]['firstName'].value;
+    lastName = document.forms[0]['secondName'].value;
+    middleName = document.forms[0]['middleName'].value;
+    comment = document.forms[0]['comment'].value;
+    checkbox = document.forms[0]['checkbox'].value;
+    console.log(email, phone, firstName, lastName, middleName, comment, checkbox)
+    pay(email, phone, firstName, lastName, middleName, comment, checkbox)
+}
+
+this.pay = function (email, phone, firstName, lastName, middleName, comment, checkbox) {
     var widget = new cp.CloudPayments();
        widget.pay('auth', // или 'charge'
            { //options
-               publicId: 'test_api_00000000000000000000002', //id из личного кабинета
-               description: 'Оплата товаров в example.com', //назначение
+               publicId: 'pk_37c7e424d66b39e881cdb54bbfd1c', //id из личного кабинета
+               description: 'Оплата товаров', //назначение
                amount: 100, //сумма
                currency: 'RUB', //валюта
-               accountId: 'user@example.com', //идентификатор плательщика (необязательно)
+               accountId: email, //идентификатор плательщика (необязательно)
                invoiceId: '1234567', //номер заказа  (необязательно)
-               email: 'user@example.com', //email плательщика (необязательно)
+               email: email, //email плательщика (необязательно)
                skin: "mini", //дизайн виджета (необязательно)
                autoClose: 3, //время в секундах до авто-закрытия виджета (необязательный)
                data: {
@@ -23,9 +38,9 @@ this.pay = function () {
                    }
                },
                payer: { 
-                   firstName: 'Тест',
-                   lastName: 'Тестов',
-                   middleName: 'Тестович',
+                   firstName: firstName,
+                   lastName: lastName,
+                   middleName: middleName,
                    birth: '1955-02-24',
                    address: 'тестовый проезд дом тест',
                    street: 'Lenina',
@@ -49,4 +64,4 @@ this.pay = function () {
        )
    };
 
-document.querySelector('#paymentButton').onclick = pay
+Paymentbutton.onclick = startFunc
