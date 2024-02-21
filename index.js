@@ -21,6 +21,7 @@ this.pay = function (email, phone, firstName, lastName, middleName, comment, che
     var data = {
         email : email,
         phone : phone,
+        name : firstName + ' ' + middleName + ' ' + lastName,
         firstName : firstName,
         lastName : lastName,
         middleName : middleName,
@@ -47,8 +48,8 @@ this.pay = function (email, phone, firstName, lastName, middleName, comment, che
             data : data,
             configuration: {
                 common: {
-                    successRedirectUrl: "https://{ваш сайт}/success", // адреса для перенаправления 
-                    failRedirectUrl: "https://{ваш сайт}/fail"        // при оплате по Tinkoff Pay
+                    successRedirectUrl: "https://kirenskiysasha.github.io/paymentTest.io/?success", // адреса для перенаправления 
+                    failRedirectUrl: "https://kirenskiysasha.github.io/paymentTest.io/?fail"        // при оплате по Tinkoff Pay
                 }
             },
             payer: { 
