@@ -1,0 +1,32 @@
+body {
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#mainContainer {
+    margin-top: 13%;
+}
+
+#form-container {
+    margin: auto;
+    width: 50%;
+    width: fit-content; 
+    background-color: lightskyblue;
+    opacity: 0.9;
+}
+
+.form-group {
+    padding: 5px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-top: 16px;
+}
+
+#paymentButton {
+    width: fit-content;
+    margin:auto;
+    margin-bottom: 20px;
+}
+
